@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-#      with:
-#        token: ${{ github.token }}
+     # with:
+     #   token: ${{ github.token }}
     - name: Build the Docker image
-      run: docker build main/guestbook-go/. --file main/guestbook-go/Dockerfile --tag arielrahmim/guestbook:$(date +%s)
+      run: docker build ./guestbook-go/ --file ./guestbook-go/ --tag arielrahmim/guestbook:$(date +%s)
