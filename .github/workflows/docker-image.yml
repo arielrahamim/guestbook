@@ -14,4 +14,4 @@ jobs:
      # with:
      #   token: ${{ github.token }}
     - name: Build the Docker image
-      run: docker build ./guestbook-go/ --file ./guestbook-go/ --tag arielrahmim/guestbook:$(date +%s)
+      run: docker build . --file Dockerfile --tag arielrahmim/guestbook:$(date +%s)
