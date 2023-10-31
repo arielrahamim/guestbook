@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.redisMaster.name }}-deployment"
+  labels:
+    app.kubernetes.io/version: "redis-master"
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app.kubernetes.io/version: {{ .Values.redisMaster.name }}
+  template:
+    metadata:
+      labels: 
+        app.kubernetes.io/version: {{ .Values.redisMaster.name }}
+    spec:
+      containers:
+        - name: {{ .Values.redisMaster.name }}
+          image: {{ .Values.redisMaster.image  }}
+          ports:
+            - name: {{ .Values.redisMaster.portName }}
+              containerPort: {{ .Values.redisMaster.containerPort }}

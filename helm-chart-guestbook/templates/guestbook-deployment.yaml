@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ include "guestbook-app.name" . }}-deployment"
+  labels:
+    {{- include "guestbook-app.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {{- include "guestbook-app.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: 
+        {{- include "guestbook-app.labels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: {{ include "guestbook-app.name" . }}
+        image: {{ .Values.guestbook_app.image | quote }}
+        ports:
+        - name: {{ .Values.guestbook_app.portName  }}
+          containerPort: {{ .Values.guestbook_app.containerPort  }}
