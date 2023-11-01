@@ -16,7 +16,7 @@ guestbook_app:
 master:
   count: 1
   containerPorts:
-    redis: "6379"
+    redis: ":6379"
 replica:
   replicaCount: 2
 fullnameOverride: "guestbook-service"
