@@ -8,4 +8,4 @@ data:
   redis-replica-host: "{{ .Release.Name }}-redis-replicas"
   redis-master-host: "{{ .Release.Name }}-redis-master"
   redisPort: {{ .Values.master.containerPorts.redis | quote }}
-  redisPassword: {{ .Values.auth.password }}
+  redisPassword: {{ .Values.global.redis.password | quote }}

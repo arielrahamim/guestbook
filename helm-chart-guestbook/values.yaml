@@ -16,13 +16,13 @@ guestbook_app:
 master:
   count: 1
   containerPorts:
-    redis: ":6379" # keep the :
+    redis: "6379"
 replica:
   replicaCount: 2
 fullnameOverride: "guestbook-service"
-auth:
-  password: "H-&9sSj@"
-  enable: true
+global:
+  redis:
+    password: "1234567"
 
 
 
