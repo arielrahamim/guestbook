@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: arielrahamim/guestbook:latest
+          tags: arielrahamim/guestbook:latest # TODO auto incremente tags
