@@ -12,23 +12,30 @@ guestbook_app:
   portName: "http-server"
   containerPort: "3000"
 
-redisMaster:
-  image: registry.k8s.io/redis:e2e
-  name: guestbook-redis-master
-  pullPolicy: IfNotPresent
-  tag:
-  portName: redis-port
-  containerPort: "6379"
-  labels: "app.kubernetes.io/part-of: redisMaster"
+master:
+  containerPorts:
+    redis: "6379"
 
-redisSlave:
-  image: registry.k8s.io/redis-slave:v2
-  name: guestbook-redis-slave
-  pullPolicy: IfNotPresent
-  tag:
-  portName: redis-port
-  containerPort: "6379"
-  labels: "app.kubernetes.io/part-of: redisSlave"
+
+
+
+# redisMaster:
+#   image: registry.k8s.io/redis:e2e
+#   name: guestbook-redis-master
+#   pullPolicy: IfNotPresent
+#   tag:
+#   portName: redis-port
+#   containerPort: "6379"
+#   labels: "app.kubernetes.io/part-of: redisMaster"
+
+# redisSlave:
+#   image: registry.k8s.io/redis-slave:v2
+#   name: guestbook-redis-slave
+#   pullPolicy: IfNotPresent
+#   tag:
+#   portName: redis-port
+#   containerPort: "6379"
+#   labels: "app.kubernetes.io/part-of: redisSlave"
 
 service:
   protocol: TCP

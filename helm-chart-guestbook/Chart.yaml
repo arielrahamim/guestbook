@@ -1,6 +1,11 @@
 apiVersion: v2
 name: guestbook
-description: Helm Chart for k8s example guestbook-app # https://github.com/kubernetes/examples/tree/master/guestbook-go
+description: Helm Chart for k8s example guestbook # https://github.com/kubernetes/examples/tree/master/guestbook-go
+dependencies:
+- name: bitnami/redis
+  version: 18.2.0
+  repository: https://charts.bitnami.com/bitnami
+
 
 # A chart can be either an 'application' or a 'library' chart.
 #

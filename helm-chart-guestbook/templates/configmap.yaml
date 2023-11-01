@@ -7,3 +7,4 @@ metadata:
 data:
   redisSlaveHost: {{ .Values.redisMaster.name }}
   redisMasterHost: {{ .Values.redisSlave.name }}
+  redisPort: {{ .Values.master.containerPorts.redis }}
