@@ -6,16 +6,23 @@
 replicaCount: 1
 guestbook_app:
   image: arielrahamim/guestbook:latest
+  tag:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag:
   portName: "http-server"
   containerPort: "3000"
 
+### redis ###
 master:
+  count: 1
   containerPorts:
-    redis: "6379"
-
+    redis: ":6379" # keep the :
+replica:
+  replicaCount: 2
+fullnameOverride: "guestbook-service"
+auth:
+  password: "H-&9sSj@"
+  enable: true
 
 
 

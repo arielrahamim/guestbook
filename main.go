@@ -12,13 +12,14 @@ import (
 )
 
 var (
-	masterPool      *simpleredis.ConnectionPool
-	replicaPool     *simpleredis.ConnectionPool
-	redisMasterHost = os.Getenv("redis-master-host")
-	redisPort       = os.Getenv("redisPort")
-	redisM          = redisMasterHost + redisPort
-	redisSlaveHost  = os.Getenv("redis-slave-host")
-	redisS          = redisSlaveHost + redisPort
+	masterPool          *simpleredis.ConnectionPool
+	replicaPool         *simpleredis.ConnectionPool
+	redisMasterHost   = os.Getenv("redis-master-host")
+	redisPort         = os.Getenv("redisPort")
+	redisReplicaHost  = os.Getenv("redis-slave-host")
+	redisPassword     = os.Getenv("redisPassword")
+	redisMaster       = redisPassword + "@" + redisMasterHost + ":" + redisPort
+	redisReplica      = redisPassword + "@" + redisReplicaHost + ":" + redisPort
 )
 
 func ListRangeHandler(rw http.ResponseWriter, req *http.Request) {
@@ -63,9 +64,9 @@ func HandleError(result interface{}, err error) (r interface{}) {
 }
 
 func main() {
-	masterPool = simpleredis.NewConnectionPoolHost(redisM)
+	masterPool = simpleredis.NewConnectionPoolHost(redisMaster)
 	defer masterPool.Close()
-	replicaPool = simpleredis.NewConnectionPoolHost(redisS)
+	replicaPool = simpleredis.NewConnectionPoolHost(redisReplica)
 	defer replicaPool.Close()
 
 	r := mux.NewRouter()

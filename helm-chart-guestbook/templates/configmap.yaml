@@ -5,6 +5,7 @@ metadata:
   labels:
     {{- include "guestbook-app.labels" . | nindent 4 }}
 data:
-  redisSlaveHost: {{ .Values.redisMaster.name }}
-  redisMasterHost: {{ .Values.redisSlave.name }}
-  redisPort: {{ .Values.master.containerPorts.redis }}
+  redis-replica-host: "{{ .Release.Name }}-redis-replicas"
+  redis-master-host: "{{ .Release.Name }}-redis-master"
+  redisPort: {{ .Values.master.containerPorts.redis | quote }}
+  redisPassword: {{ .Values.auth.password }}

@@ -19,3 +19,7 @@ spec:
         ports:
         - name: {{ .Values.guestbook_app.portName  }}
           containerPort: {{ .Values.guestbook_app.containerPort  }}
+        envFrom:
+        - configMapRef:
+            name: "{{ include "guestbook-app.name" . }}-configmap"
+          
