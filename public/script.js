@@ -5,6 +5,7 @@ $(document).ready(function() {
   var submitElement = $("#guestbook-submit");
   var entryContentElement = $("#guestbook-entry-content");
   var hostAddressElement = $("#guestbook-host-address");
+  var databaseStatusElement = $("#database-status");
 
   var appendGuestbookEntries = function(data) {
     entriesElement.empty();
@@ -15,7 +16,7 @@ $(document).ready(function() {
 
   var handleSubmission = function(e) {
     e.preventDefault();
-    var entryValue = entryContentElement.val()
+    var entryValue = entryContentElement.val();
     if (entryValue.length > 0) {
       entriesElement.append("<p>...</p>");
       $.getJSON("rpush/guestbook/" + entryValue, appendGuestbookEntries);
@@ -36,11 +37,29 @@ $(document).ready(function() {
   formElement.submit(handleSubmission);
   hostAddressElement.append(document.URL);
 
+  // Function to check the database connection status
+  var checkDatabaseStatus = function() {
+    // Replace with your actual code to check the database status
+    // For example, you can make an AJAX request to your backend
+    // and update the content of databaseStatusElement accordingly.
+
+    // Simulated example:
+    var isConnected = true; // Set to true if connected, false otherwise
+    if (isConnected) {
+      databaseStatusElement.text("Connected to Database");
+    } else {
+      databaseStatusElement.text("Not connected to Database");
+    }
+  };
+
+  // Call the function to check the database status
+  checkDatabaseStatus();
+
   // Poll every second.
   (function fetchGuestbook() {
     $.getJSON("lrange/guestbook").done(appendGuestbookEntries).always(
       function() {
-        setTimeout(fetchGuestbook, 1000);
+        setTimeout(fetchGuestbook, 4000);
       });
   })();
 });
