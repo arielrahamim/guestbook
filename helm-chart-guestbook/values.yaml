@@ -54,7 +54,6 @@ service:
 imagePullSecrets: []
 # use to override include function "guestbook-app.name" from _helpers.tpl
 nameOverride: ""
-fullnameOverride: ""
 ### {{{ Default ServiceAccount Values }}}
 # Specifies whether a service account should be created
 serviceAccount:
