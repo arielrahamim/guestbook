@@ -6,7 +6,9 @@ on:
   pull_request:
     branches: [ "main" ] 
   workflow_dispatch: 
-
+### TO DO
+### make it the action name will git "Docker Image Ci : commit note"
+###
 jobs:
   docker:
     runs-on: ubuntu-latest
