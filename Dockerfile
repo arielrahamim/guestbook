@@ -11,9 +11,9 @@ RUN go mod download
 RUN go build -o main .
 
 # making new clean image
-FROM scratch
-WORKDIR /app
-COPY --from=builder /app/main /app/main
+# FROM scratch
+# WORKDIR /app
+# COPY --from=builder /app/main /app/main
 
 COPY ./public/index.html public/index.html
 COPY ./public/script.js public/script.js
