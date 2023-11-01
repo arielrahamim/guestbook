@@ -18,8 +18,8 @@ var (
 	redisPort         = os.Getenv("redisPort")
 	redisReplicaHost  = os.Getenv("redis-slave-host")
 	redisPassword     = os.Getenv("redisPassword")
-	redisMaster       = redisPassword + redisMasterHost  + redisPort
-	redisReplica      = redisPassword + redisReplicaHost + redisPort
+	redisMaster       = redisPassword + "@" + redisMasterHost  + redisPort
+	redisReplica      = redisPassword + "@" + redisReplicaHost + redisPort
 )
 
 func ListRangeHandler(rw http.ResponseWriter, req *http.Request) {
