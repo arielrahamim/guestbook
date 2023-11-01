@@ -1,65 +1,61 @@
-$(document).ready(function() {
-  var headerTitleElement = $("#header h1");
-  var entriesElement = $("#guestbook-entries");
-  var formElement = $("#guestbook-form");
-  var submitElement = $("#guestbook-submit");
-  var entryContentElement = $("#guestbook-entry-content");
-  var hostAddressElement = $("#guestbook-host-address");
-  var databaseStatusElement = $("#database-status");
+body, input {
+  color: #123;
+  font-family: "Gill Sans", sans-serif;
+}
 
-  var appendGuestbookEntries = function(data) {
-    entriesElement.empty();
-    $.each(data, function(key, val) {
-      entriesElement.append("<p>" + val + "</p>");
-    });
-  }
+div {
+  overflow: hidden;
+  padding: 1em 0;
+  position: relative;
+  text-align: center;
+}
 
-  var handleSubmission = function(e) {
-    e.preventDefault();
-    var entryValue = entryContentElement.val();
-    if (entryValue.length > 0) {
-      entriesElement.append("<p>...</p>");
-      $.getJSON("rpush/guestbook/" + entryValue, appendGuestbookEntries);
-    }
-    return false;
-  }
+h1, h2, p, input, a {
+  font-weight: 300;
+  margin: 0;
+}
 
-  // colors = purple, blue, red, green, yellow
-  var colors = ["#549", "#18d", "#d31", "#2a4", "#db1"];
-  var randomColor = colors[Math.floor(5 * Math.random())];
-  (function setElementsColor(color) {
-    headerTitleElement.css("color", color);
-    entryContentElement.css("box-shadow", "inset 0 0 0 2px " + color);
-    submitElement.css("background-color", color);
-  })(randomColor);
+h1 {
+  color: #BDB76B;
+  font-size: 3.5em;
+}
 
-  submitElement.click(handleSubmission);
-  formElement.submit(handleSubmission);
-  hostAddressElement.append(document.URL);
+h2 {
+  color: #999;
+}
 
-  // Function to check the database connection status
-  var checkDatabaseStatus = function() {
-    // Replace with your actual code to check the database status
-    // For example, you can make an AJAX request to your backend
-    // and update the content of databaseStatusElement accordingly.
+form {
+  margin: 0 auto;
+  max-width: 50em;
+  text-align: center;
+}
 
-    // Simulated example:
-    var isConnected = true; // Set to true if connected, false otherwise
-    if (isConnected) {
-      databaseStatusElement.text("Connected to Database");
-    } else {
-      databaseStatusElement.text("Not connected to Database");
-    }
-  };
+input {
+  border: 0;
+  border-radius: 1000px;
+  box-shadow: inset 0 0 0 2px #BDB76B;
+  display: inline;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  outline: none;
+  padding: .5em 5%;
+  width: 55%;
+}
 
-  // Call the function to check the database status
-  checkDatabaseStatus();
+form a {
+  background: #BDB76B;
+  border: 0;
+  border-radius: 1000px;
+  color: #FFF;
+  font-size: 1.25em;
+  font-weight: 400;
+  padding: .75em 2em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: normal;
+}
 
-  // Poll every second.
-  (function fetchGuestbook() {
-    $.getJSON("lrange/guestbook").done(appendGuestbookEntries).always(
-      function() {
-        setTimeout(fetchGuestbook, 4000);
-      });
-  })();
-});
+p {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
