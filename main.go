@@ -15,7 +15,7 @@ var (
 	masterPool      *simpleredis.ConnectionPool
 	replicaPool     *simpleredis.ConnectionPool
 	redisMasterHost = os.Getenv("redis-master-host")
-	redisPort       = "6379"
+	redisPort       = ":6379"
 	redisM          = redisMasterHost + redisPort
 	redisSlaveHost  = os.Getenv("redis-slave-host")
 	redisS          = redisSlaveHost + redisPort

@@ -22,4 +22,5 @@ app.kubernetes.io/name: {{ include "guestbook-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*env variables*/}}
 

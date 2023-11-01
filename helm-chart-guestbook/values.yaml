@@ -5,7 +5,7 @@
 ### {{{ Default Deployment Values }}} 
 replicaCount: 1
 guestbook_app:
-  image: arielrahamim/guestbook-app:latest
+  image: arielrahamim/guestbook:latest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag:

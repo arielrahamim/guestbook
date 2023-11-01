@@ -1,5 +1,5 @@
 apiVersion: v2
-name: guestbook-app
+name: guestbook
 description: Helm Chart for k8s example guestbook-app # https://github.com/kubernetes/examples/tree/master/guestbook-go
 
 # A chart can be either an 'application' or a 'library' chart.
