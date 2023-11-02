@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "" ] # automatic ci disabled
   pull_request:
-    branches: [ "main" ] 
+    branches: [ "" ] 
   workflow_dispatch: 
 ### TO DO
 ### make it the action name will git "Docker Image Ci : commit note"
