@@ -13,9 +13,9 @@ spec:
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: HEAD
     helm:
-      releaseName: aviv
+      releaseName: guest
       valueFiles: 
-      - values.yamlju
+      - values.yaml
   - path: argocd
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: HEAD
