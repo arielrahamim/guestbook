@@ -8,15 +8,17 @@ spec:
     name: ''
     namespace: guestbook-app
     server: 'https://kubernetes.default.svc'
-  source:
-    path: helm-chart-guestbook
+  sources:
+  - path: helm-chart-guestbook
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: HEAD
     helm:
       releaseName: guest
       valueFiles: 
       - values.yaml
-  sources: []
+  - path: argocd
+    repoURL: 'https://github.com/arielrahamim/guestbook'
+    targetRevision: HEAD
   project: default
   syncPolicy:
     automated:
