@@ -13,7 +13,7 @@ spec:
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: HEAD
     helm:
-      releaseName: guest
+      releaseName: aviv
       valueFiles: 
       - values.yaml
   - path: argocd
