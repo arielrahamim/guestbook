@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+#  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: guestbook-app
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: helm-chart-guestbook
+    repoURL: 'https://github.com/arielrahamim/guestbook'
+    targetRevision: HEAD
+    helm:
+      releaseName: guest
+      valueFiles: 
+      - values.yaml
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
