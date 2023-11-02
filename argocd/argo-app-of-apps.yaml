@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook
+  name: guestbook-apps-of-apps
 #  namespace: argocd
 spec:
   destination:
@@ -9,13 +9,10 @@ spec:
     namespace: guestbook-app
     server: 'https://kubernetes.default.svc'
   source:
-    path: helm-chart-guestbook
+    path: argocd
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: main
-    helm:
-      releaseName: guest
-      valueFiles: 
-      - values.yaml
+  sources: []
   project: default
   syncPolicy:
     automated:
