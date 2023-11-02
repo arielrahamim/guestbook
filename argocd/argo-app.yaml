@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: aviv
       valueFiles: 
-      - values.yaml
+      - values.yamlju
   - path: argocd
     repoURL: 'https://github.com/arielrahamim/guestbook'
     targetRevision: HEAD
