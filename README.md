@@ -15,8 +15,6 @@ This project was created as part of a learning journey towards becoming a DevOps
   - [Installation](#installation)
 - [Usage](#usage)
 - [CI/CD](#cicd)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
