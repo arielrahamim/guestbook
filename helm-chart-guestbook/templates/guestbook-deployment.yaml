@@ -15,11 +15,10 @@ spec:
     spec:
       containers:
       - name: {{ include "guestbook-app.name" . }}
-        image: {{ .Values.guestbook_app.image }}: {{ .Values.guestbook_app.tag}}
+        image: "{{ .Values.guestbook_app.image }}:{{ .Values.guestbook_app.tag }}"
         ports:
         - name: {{ .Values.guestbook_app.portName  }}
           containerPort: {{ .Values.guestbook_app.containerPort  }}
         envFrom:
         - configMapRef:
             name: "{{ include "guestbook-app.name" . }}-configmap"
-          
