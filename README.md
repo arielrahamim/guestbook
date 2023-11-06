@@ -1,8 +1,10 @@
-# Guestbook Webpage with Helm Chart - Kubernetes Example Modernization
+# Guestbook Webpage as a Helm Chart
 
 ## Overview
 
-This repository contains a modernized version of the Guestbook webpage, originally from the Kubernetes examples project. The project has been transformed into a Helm chart, utilizing a Redis Helm chart for data storage. 
+originally from the Kubernetes examples project [https://github.com/kubernetes/examples/tree/master/guestbook-go]
+
+The guestbook has been transformed into a Helm chart, as well as utilizing a Redis Helm chart for data storage. 
 In addition to this, continuous integration (CI) with GitHub Actions and ArgoCD integration have been implemented to streamline the deployment and management processes.
 
 This project was created as part of a learning journey towards becoming a DevOps engineer and serves as an excellent example of Kubernetes application deployment using modern best practices.
