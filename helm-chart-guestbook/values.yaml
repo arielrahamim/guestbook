@@ -5,8 +5,8 @@
 ### {{{ Default Deployment Values }}} 
 replicaCount: 1
 guestbook_app:
-  image: arielrahamim/guestbook:latest
-  tag:
+  image: arielrahamim/guestbook
+  tag: v1
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   portName: "http-server"
@@ -22,27 +22,7 @@ replica:
 fullnameOverride: "guestbook-service"
 global:
   redis:
-    password: "1234567"
-
-
-
-# redisMaster:
-#   image: registry.k8s.io/redis:e2e
-#   name: guestbook-redis-master
-#   pullPolicy: IfNotPresent
-#   tag:
-#   portName: redis-port
-#   containerPort: "6379"
-#   labels: "app.kubernetes.io/part-of: redisMaster"
-
-# redisSlave:
-#   image: registry.k8s.io/redis-slave:v2
-#   name: guestbook-redis-slave
-#   pullPolicy: IfNotPresent
-#   tag:
-#   portName: redis-port
-#   containerPort: "6379"
-#   labels: "app.kubernetes.io/part-of: redisSlave"
+    password: "12345678"
 
 service:
   protocol: TCP
@@ -50,17 +30,11 @@ service:
   port: 80
   targetPort: 3000
 
-
 imagePullSecrets: []
 # use to override include function "guestbook-app.name" from _helpers.tpl
 nameOverride: ""
 ### {{{ Default ServiceAccount Values }}}
 # Specifies whether a service account should be created
-serviceAccount:
-  create: true
-  automount: true
-  annotations: {}
-  name: ""
 
 podAnnotations: {}
 podLabels: {}
