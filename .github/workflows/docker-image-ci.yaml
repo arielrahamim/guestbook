@@ -6,6 +6,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ] 
+
+env:
+  image_name: arielrahamim/guestbook
+  image_tag: ${{ GITHUB_SHA::4 }}
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -24,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: arielrahamim/guestbook:${{GITHUB_SHA}} ## tagging the image with the git commit id
+          tags: $image_name:$image_tag ## tagging the image with the git commit id
