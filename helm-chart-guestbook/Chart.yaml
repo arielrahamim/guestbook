@@ -5,6 +5,10 @@ dependencies:
 - name: redis
   version: 18.2.0
   repository: https://charts.bitnami.com/bitnami
+- name: argocd
+  version: 5.50.1
+  repository: https://argoproj.github.io/argo-helm
+
 
 
 # A chart can be either an 'application' or a 'library' chart.
