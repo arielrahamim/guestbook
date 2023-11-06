@@ -3,9 +3,9 @@ name: Docker Image CI
 on:
   workflow_dispatch: 
   push:
-    branches: [ "main" ]
+    branches: [ "" ] # temporary disabled
   pull_request:
-    branches: [ "main" ] 
+    branches: [ "" ] # temporary disabled
 jobs:
   docker:
     runs-on: ubuntu-latest
