@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: arielrahamim/guestbook:${{ GITHUB_SHA }} ## tagging the image with the git commit id
+          tags: arielrahamim/guestbook:${{GITHUB_SHA}} ## tagging the image with the git commit id
