@@ -13,7 +13,7 @@ jobs:
       -
         name: tagging setup
         id: tagging
-        run: echo ${GITHUB_SHA:36:40}
+        run: echo ${GITHUB_SHA:34:40}
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -28,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: arielrahamim/guestbook:$ {{ GITHUB_SHA:36:40 }}
+          tags: arielrahamim/guestbook:${{ steps.tagging.outputs }}
